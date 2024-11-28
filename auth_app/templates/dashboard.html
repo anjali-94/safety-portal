@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Naari - The Women Essentials Website</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            padding-top: 100px;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        header nav {
+            margin-top: 10px;
+        }
+
+        header nav a {
+            color: #fff;
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 1.1rem;
+        }
+
+        header nav a:hover {
+            text-decoration: underline;
+        }
+
+        .static-section {
+            background-image: url('https://img.freepik.com/premium-photo/group-women-pink-dresses-sit-front-pink-background_1130573-114037.jpg?w=900');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .static-section h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .static-section p {
+            font-size: 1.1rem;
+        }
+
+        .static-section1 {
+            background-color: #d3396c;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .static-section1 h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .static-section1 p {
+            font-size: 1.1rem;
+        }
+
+        .static-section2 {
+            background-color: #be144d;
+            padding: 50px 20px;
+            text-align: center;
+            color: #e7e7e7;
+        }
+
+        .static-section2 h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .static-section2 p {
+            font-size: 1.1rem;
+        }
+
+        /* Helpline Tiles Styling */
+        .helpline-tiles {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .tile {
+            background-color: #ffe0e6;
+            border: 2px solid #c50069;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            width: 200px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .tile h3 {
+            color: #c50076;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+
+        .tile p {
+            font-size: 1.2rem;
+            color: #000000;
+            font-weight: bold;
+        }
+
+        .tile:hover {
+            transform: scale(1.05);
+            background-color: #ffccd1;
+        }
+
+
+        .section-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            padding: 40px;
+        }
+
+        .section {
+            background-color: #fff;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            transition: transform 0.3s ease-in-out;
+            cursor: pointer;
+        }
+
+        .section:hover {
+            transform: translateY(-30px);
+        }
+
+        .section h4 {
+            font-size: 1.5rem;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .section p {
+            font-size: 1rem;
+            color: #666;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 5px;
+            z-index: 1000;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            margin: 2.5% auto;
+            padding: 10px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 800px;
+            max-height: 90vh;
+            overflow-y: scroll;
+        }
+
+        .modal-header {
+            font-size: 1.8rem;
+            color: #333;
+        }
+
+        .close {
+            color: #aaa;
+            font-size: 28px;
+            font-weight: bold;
+            float: right;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        @media (max-width: 1024px) {
+            .section-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .section-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        #story {
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.8); /* Optional: Semi-transparent background */
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header styles */
+        .iframe-header {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            font-size: 18px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+
+        /* iFrame */
+        iframe {
+            flex-grow: 1;
+            border: none;
+            width: 100%;
+            height: calc(100vh - 50px); /* Adjust based on header height */
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Naari - The Women Essentials Website</h1>
+        <nav>
+            <a href="#about-us">About Us</a>
+            <a href="#helpline">Helpline Numbers</a>
+            <a href="{% url 'story_feed' %}" >See All Stories</a>
+            <a href="{% url 'feedback' %}" >Give Feedback</a>
+            <a href="#contact">Contact Us</a>
+            <a href="{% url 'logout' %}">Logout</a> 
+        </nav>
+    </header>
+
+    <section class="static-section">
+        <h2>Welcome to Naari</h2>
+        <h3>Your go-to website for all things women essentials.</h3>
+        <p>Naari is an empowering platform dedicated to women's safety, health, and well-being. Seamlessly combining innovation and accessibility, Naari offers features like self-defense techniques, menstrual health insights, and a gynecologist finder for personalized care...</p>
+    </section>
+
+    <div class="section-container">
+        <div class="section" onclick="openModal('Self Defense Techniques and Tools', '/self_defense/')">
+            <h4>Self Defense Techniques and Tools</h4>
+            <p>Learn essential self-defense techniques and discover tools designed to enhance your safety.</p>
+        </div>
+    
+        <div class="section" onclick="openModal('All about Mensus', '/mensus/')">
+            <h4>All about Mensus</h4>
+            <p>Understand menstrual health, hygiene tips, and more.</p>
+        </div>
+
+        <div class="section" onclick="openModal('Gynecologist Finder', '/gynec/')">
+            <h4>Gynecologist Finder</h4>
+            <p>Find trusted gynecologists near you for personalized care.</p>
+        </div>
+
+        <div class="section" onclick="openModal('Know your Laws and Rights', '/laws/')">
+            <h4>Know your Laws and Rights</h4>
+            <p>Learn about laws and rights designed to protect women.</p>
+        </div>
+
+        <div class="section" onclick="openModal('Find an NGO around', '/Ngo/')">
+            <h4>NGOs Around</h4>
+            <p>Connect with NGOs in your area working towards women's empowerment.</p>
+        </div>
+
+        <div class="section" onclick="openModal('Memorial Wall', '/memorialwall/')">
+            <h4>Memorial Wall</h4>
+            <p>Honor those who made a difference in women's safety.</p>
+        </div>
+
+        <div class="section" onclick="openModal('Send Location', '/location/')">
+            <h4>Send Location</h4>
+            <p>Quickly book a cab to ensure a safe journey.</p>
+        </div>
+
+        <div class="section" onclick="openModal('File a Complaint', '/complaint/')">
+            <h4>File a Complaint</h4>
+            <p>Report any incident easily through our complaint system.</p>
+        </div>
+    </div>
+
+
+<!-- 
+    <section class="story">
+        <h2>Stories</h2>
+        <a href="{% url 'story' %}"><p>Click Here! Post your Story Anonymously</p></a>
+    </section> -->
+
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 id="modalTitle" class="modal-header"></h2>
+            <iframe id="modalIframe" style="width: 100%; height: 100vh; border: none;"></iframe>
+        </div>
+    </div>
+
+    <div id="story">
+        <div class="story">
+            <span></span>
+        </div>
+        <iframe id="contentIframe" src="{% url 'story' %}"></iframe>
+    </div>
+
+    <section id="about-us">
+        <div class="static-section2">
+            <h2>Who are we?</h2>
+            <p>Welcome to Naari, a project born from passion, purpose, and the unwavering belief 
+                in creating a safer world for women. We are a team of four young women pursuing 
+                our Master’s in Informatics, united by a shared dream: to use technology as a 
+                tool for empowerment and change.</p>
+            <p>Through Naari, we aim to foster a supportive community where women can share their 
+                experiences, access crucial resources, and find their voices. From connecting users 
+                with vital helplines to offering tools for personal safety and well-being, our platform 
+                is built with the real needs of women in mind.</p>
+
+            <p>Together, we hope to inspire change, spark conversations, and build a world where every
+            woman can walk with confidence and dignity. Join us in this journey to make safety 
+            and empowerment a reality for all.</p>
+        </div>
+    </section>
+
+    <section id="helpline" class="static-section1">
+        <h2>Helpline Numbers</h2>
+        <p>If you or someone you know needs help, reach out to these helpline numbers. You are not alone.</p>
+        
+        <div class="helpline-tiles">
+            <div class="tile">
+                <h3>Women Helpline (All India)</h3>
+                <p>1091</p>
+            </div>
+            <div class="tile">
+                <h3>Police (Emergency)</h3>
+                <p>100</p>
+            </div>
+            <div class="tile">
+                <h3>Domestic Violence Helpline</h3>
+                <p>181</p>
+            </div>
+            <div class="tile">
+                <h3>National Commission for Women</h3>
+                <p>011-26942369</p>
+            </div>
+            <div class="tile">
+                <h3>Childline (For Children)</h3>
+                <p>1098</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="static-section2">
+        <h2> Reach Out to Us</h2>
+        <a href="mailto:We.naarii@gmail.com" style="text-decoration: none; color: #000;">
+            <i class="fas fa-envelope"></i> We.naarii@gmail.com </a>
+    </section> 
+
+
+    <footer>
+        <p>&copy; 2024 Naari Website | All Rights Reserved</p>
+    </footer>
+
+    <script>
+        function openModal(title, url) {
+            document.getElementById("modalTitle").innerText = title;
+            document.getElementById("modalIframe").src = url;
+            document.getElementById("myModal").style.display = "block";
+        }
+
+        function closeModal() {
+            document.getElementById("myModal").style.display = "none";
+        }
+    </script>
+
+</body>
+</html>
